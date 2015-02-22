@@ -1,0 +1,55 @@
+@body-bg:               #292824;
+@text-color:            #fff;
+@brand-primary:         #8ab53b;
+@border-radius-small:       0px;
+@navbar-height:                    26px;
+@navbar-border-radius:             @border-radius-small;
+@navbar-default-bg:                #27BDB5;
+@navbar-default-link-active-bg:    #27BDB5;
+@navbar-default-link-color:                #fff;
+@container-large-desktop:      ((960px + @grid-gutter-width));
+
+
+
+/* oude implementatie van centering van navbar text
+.navbar-collapse.collapse {
+        text-align: center; *//* Set this */
+        /*display: block !important;
+        height: auto !important;
+        padding-bottom: 0;
+        overflow: visible !important;
+}
+
+.navbar-nav {
+    display: inline-block;
+    float: none;
+    margin: 0;
+    font-size:@font-size-large;
+    font-weight: bold;
+} */ 
+
+
+/* alleen voor hogere resoluties centering van navbar toepassen => anders werkt collapse niet op mobile*/
+@media (min-width: 768px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+    font-size:@font-size-large;
+    font-weight: bold;        
+    }
+
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+}
+
+.headerOMD
+{  
+	width: 960px;
+	height: 91px;
+	background: url('../img/header.png') repeat-x;
+}      
+
+.well {
+	color: @body-bg;
+}

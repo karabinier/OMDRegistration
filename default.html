@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="loginApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="content/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>    
+ 
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.2.16/angular-resource.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.2.16/angular-sanitize.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/ctrl.js"></script>
+
+
+    <title>Inschrijvingsformulier Open MonumentenDag Tervuren</title>
+</head>
+<body ng-controller="appCtrl">
+
+
+    <div class="container">
+
+        <div class="bs-docs-section">
+            <div class="page-header headerOMD">
+                
+            </div>
+        </div>
+
+        <div class="bs-docs-section">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+
+                       <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" 
+                           data-target="#navbar-collapse-1">
+                           <span class="sr-only">Toggle navigation</span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                           <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                     </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="http://www.omdtervuren.be/home">Home</a></li>
+                            <li><a href="http://www.omdtervuren.be/thema-1">Thema</a></li>
+                            <li class="active"><a href="http://www.omdtervuren.be/omdtervuren">Activiteiten</a></li>
+                            <li><a href="http://www.omdtervuren.be/plan">Plan</a></li>
+                            <li><a href="http://www.omdtervuren.be/links">Links</a></li>
+                            <li><a href="http://www.omdtervuren.be/contact">Contact</a></li>
+                        </ul>
+                    </div>
+               </div>
+            </nav>
+        </div>
+
+        <div class="bs-docs-section" ng-view>
+
+
+    </div>
+
+
+</body>
+</html>
