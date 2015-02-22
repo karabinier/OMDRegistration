@@ -1,7 +1,7 @@
 
 function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParams) {
     $scope.info = {};
-        $scope.browserSupported = $scope.checkBrowserSupport();
+       // $scope.browserSupported = $scope.checkBrowserSupport();
         $rootScope.updateSession = function (params) {
         $rootScope.session = params;
         if(params.length > 0)
