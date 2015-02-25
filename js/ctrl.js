@@ -13,6 +13,14 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
                         
             
     };
+    
+    $scope.getClass = function(path) {
+        if ($location.path().substr(0, path.length) == path) {
+            return "active"
+        } else {
+          return ""
+        }
+    }
 
     $scope.postToGoogle = function () {
         Registration.postToGoogleSpreadsheet($scope.registration);

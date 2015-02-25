@@ -10,9 +10,17 @@ app.config(['$routeProvider',
     when('/register/:eventId', {
         templateUrl: 'registerTemplate.html',
         controller: 'appCtrl'
-      }).    
+      }). 
+    when('/home', {
+        templateUrl: 'homeTemplate.html',
+        controller: 'appCtrl'
+      }). 
+    when('/contact', {
+        templateUrl: 'contactTemplate.html',
+        controller: 'appCtrl'
+      }).     
       otherwise({
-        redirectTo: '/events/0'
+        redirectTo: '/home'
       });
   }]);
 

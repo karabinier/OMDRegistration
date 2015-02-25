@@ -59,12 +59,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="http://www.omdtervuren.be/home">Home</a></li>
-                            <li><a href="http://www.omdtervuren.be/thema-1">Thema</a></li>
-                            <li class="active"><a href="http://www.omdtervuren.be/omdtervuren">Activiteiten</a></li>
-                            <li><a href="http://www.omdtervuren.be/plan">Plan</a></li>
-                            <li><a href="http://www.omdtervuren.be/links">Links</a></li>
-                            <li><a href="http://www.omdtervuren.be/contact">Contact</a></li>
+                            <li ng-class="getClass('/home')"><a href="#/home">Home</a></li>
+                            <li ng-class="getClass('/thema')"><a href="#/home">Thema</a></li>
+                            <li ng-class="getClass('/register')"><a href="#/home">Activiteiten</a></li>
+                            <li ng-class="getClass('/plan')"><a href="#/home">Plan</a></li>
+                            <li ng-class="getClass('/links')"><a href="#/home">Links</a></li>
+                            <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li>
                         </ul>
                     </div>
                </div>
