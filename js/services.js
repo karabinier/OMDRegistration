@@ -150,7 +150,14 @@ app.factory('Registration', function ($rootScope) {
                     formUrl: mBassadeurFormUrl,
                     redirectUrl: mBassadeurRedirectUrl
                 }
-
+                ,
+                {   id : 10,
+                    registrationAllowed: true,
+                    name: 'Paaseitjeswandeling Tervuren!',
+                    departureHours: [],
+                    formUrl: mBassadeurFormUrl,
+                    redirectUrl: mBassadeurRedirectUrl
+                }
             ];
         },
 

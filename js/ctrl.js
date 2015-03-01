@@ -73,6 +73,8 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
     email : "",
     postcode : "",
       birthDate : "",
+      address : "",
+      city : "",
     numberOfPersons :0,
     hourDeparture : "",
     comment : ""
