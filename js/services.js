@@ -29,20 +29,40 @@ app.factory('Registration', function ($rootScope) {
                     "entry_1286405048": registration.tel,
                     "entry_351041498": registration.email,
                     "entry_922331852": registration.birthDate,
+                    "entry_24892910": 'addr nvt',
+                    "entry_1354271491": 'city nvt',                    
                     "entry_1995805459": 'nvt',
                     "entry_1443470760": 'nvt',
-                    "entry_335933636": registration.comment};            
+                    "entry_335933636": registration.comment};    
             else
-                return { 
-                    "entry_125932087": registration.selectedActivity.name,
-                    "entry_2023678217": registration.firstName, 
-                    "entry_1841105698": registration.lastName,
-                    "entry_1286405048": registration.tel,
-                    "entry_351041498": registration.email,
-                    "entry_922331852": registration.postcode,
-                    "entry_1995805459": registration.numberOfPersons,
-                    "entry_1443470760": registration.hourDeparture,
-                    "entry_335933636": registration.comment};
+            {
+                if(registration.selectedActivity.id == 10)
+                    return { /* in het geval van registratie voor Paaseitjeswandeling zijn andere velden nodig*/
+                        "entry_125932087": registration.selectedActivity.name,
+                        "entry_2023678217": registration.firstName, 
+                        "entry_1841105698": registration.lastName,
+                        "entry_1286405048": registration.tel,
+                        "entry_351041498": registration.email,
+                        "entry_922331852": registration.postcode,
+                        "entry_24892910": registration.address,
+                        "entry_1354271491": registration.city,                        
+                        "entry_1995805459": registration.numberOfPersons,
+                        "entry_1443470760": registration.hourDeparture,
+                        "entry_335933636": registration.comment};                    
+                else
+                    return { 
+                        "entry_125932087": registration.selectedActivity.name,
+                        "entry_2023678217": registration.firstName, 
+                        "entry_1841105698": registration.lastName,
+                        "entry_1286405048": registration.tel,
+                        "entry_351041498": registration.email,
+                        "entry_922331852": registration.postcode,
+                        "entry_1995805459": registration.numberOfPersons,
+                        "entry_1443470760": registration.hourDeparture,
+                        "entry_24892910": 'addr nvt',
+                        "entry_1354271491": 'city nvt',                        
+                        "entry_335933636": registration.comment};
+            }
         },
         
         /*supportedBrowser:function(){
@@ -154,9 +174,9 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 10,
                     registrationAllowed: true,
                     name: 'Paaseitjeswandeling Tervuren',
-                    departureHours: [],
+                    departureHours: ['14u', '14u15', '14u30', '14u45', '15u', '15u15', '15u30', '15u45', '16u'],
                     formUrl: mBassadeurFormUrl,
-                    redirectUrl: mBassadeurRedirectUrl
+                    redirectUrl: 'http://www.paaseitjeswandelingtervuren.be'
                 }
             ];
         },

@@ -1,5 +1,5 @@
 
-function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParams) {
+function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParams, $window) {
     $scope.info = {};
        // $scope.browserSupported = $scope.checkBrowserSupport();
         $rootScope.updateSession = function (params) {
@@ -28,6 +28,9 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
         $('.alert').show();
     };
 
+    $scope.cancel = function () {
+        $window.history.back();
+    };
 
     $scope.getInfo = function () {
         /*FB.api('/' + $rootScope.session.Registration_id, function (response) {
