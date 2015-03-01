@@ -1,0 +1,48 @@
+ #container .form-group {white-space: nowrap;}
+ #container .form-group label{color:#006}
+ #container legend{color:#006}
+
+body { font-size: 62.5%; margin: 0; padding: 0; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/a.png?1425195906') top left repeat; font-family: 'lucida grande', arial, tahoma, sans-serif; }
+ #container { margin: 0 auto; width: 684px; position: relative; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/containerbg.png?1425195906') top left repeat-y; }
+ #header { margin: 0 auto; width: 640px; height: 96px; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/default_header.jpg?1425195906') top left no-repeat; }
+ .headtitle { position: relative; top: 0px; left: 12px; line-height: 1.5; }
+ .headtitle, .headtitle a { font-family: 'lucida grande', arial, tahoma, sans-serif; font-size: 30px; color: #FFF; text-decoration: none; }
+ #menu { margin: 0 20px; height: 29px; background: #bbd75a !important; background: #b3d24e; padding: 5px 0 5px 0; }
+ *html menu { padding:5px 0 0 0; }
+ #menu ul { margin: 0; padding: 7px; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/menuoff.png?1425195906') top left repeat-x; height: 20px; }
+ *html #menu ul { height:16px; }
+ #menu ul li { list-style: none; display: inline; }
+ #menu ul li a:link, #menu ul li a:visited { color: #767676; padding: 7px 7px 7px 7px; font-size: 1em; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/menuoff.png?1425195906') center left repeat-x; font-family: 'lucida grande', arial, sans-serif; font-weight: bold; text-decoration: none; height:29px; }
+ #menu ul li a:hover { background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/menuon.png?1425195906') center left repeat-x; color: #FDFDFD; }
+ #active a:link { background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/menuon.png?1425195906') center left repeat-x; color: #FDFDFD; }
+ #active a:hover { background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/menuon.png?1425195906') center left repeat-x; color: #FDFDFD; }
+ #active a:visited { background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/menuon.png?1425195906') center left repeat-x; color: #FDFDFD; }
+ #roundedheader { width: 640px; height: 18px; margin: 0 auto; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/belowheader.png?1425195906') top left no-repeat; }
+ *html #roundheader { margin-top:-5px; }
+ #content { min-height:400px; height:auto !important; height:400px; width: 640px; margin: 0 auto; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/contentbg.png?1425195906') top left repeat-y; }
+ #insidecontent { float: left; padding-left: 25px; width: 590px; }
+ #insidecontent div.paragraph { margin: 0; color: #767676; font-family: 'lucida grande', 'franklin gothic medium', sans-serif; font-size: 1.3em; line-height:1.5; }
+ #insidecontent p { margin: 0; color: #767676; font-family: 'lucida grande', 'franklin gothic medium', sans-serif; font-size: 1.3em; line-height:1.5; }
+ #sidebar { padding: 0 10px 10px 10px; float: right; width: 210px; background: #f6f6f6; }
+ #sidebar div.paragraph { margin: 0; color: #565656; font-family: 'lucida grande', 'franklin gothic medium', sans-serif; font-size: 1em; line-height: 170%; }
+ #sidebar p { margin: 0; color: #565656; font-family: 'lucida grande', 'franklin gothic medium', sans-serif; font-size: 1em; line-height: 170%; }
+ #sidebar a:link, #sidebar a:active, #sidebar a:visited { text-decoration: underline; color: #e36767; }
+ #sidebar a:hover { text-decoration: none; }
+ #roundedfooter { width: 640px; height: 17px; margin: 0 auto; background: transparent url('http://www.paaseitjeswandelingtervuren.be/files/theme/abovefooter.png?1425195906') top left no-repeat; }
+ h2 { margin: 10px 0; font-weight: normal; color: #94c258; font-size: 2.2em; }
+ h3 { margin: 0; font-size: 1.5em; font-weight: normal; color: #94C258; }
+ #footer { margin: 0 auto; width: 641px; min-height: 39px; }
+ #weeblyFooter { display: block; position: relative; font-family: 'lucida grande', 'franklin gothic medium', sans-serif; font-size: 1.2em; padding: 10px 20px; color: #565656; }
+ #wsite-menus .wsite-menu-wrap { z-index: 5000; }
+ #wsite-menus .wsite-menu { padding: 0; margin: 0; list-style: none; }
+ #wsite-menus .wsite-menu li { float: left; clear: left; width: 170px; text-align: left; }
+ #wsite-menus .wsite-menu li a { position: relative; display: block; width: 100%; background: #d7f571; border-right: 1px solid #d7f571; border-left: 1px solid #d7f571; border-bottom: 1px solid #cae668; text-decoration: none; font-size: 11px; font-weight: normal; line-height:1; padding:5px; color: #666666; }
+ #wsite-menus .wsite-menu li a:hover { background: #cae668; }
+ #wsite-menus span.wsite-menu-title { display: block; padding: 5px 10px; }
+ #wsite-menus span.wsite-menu-more { background: transparent url(http://images.weebly.com/weebly/images/submenu_arrow.gif) no-repeat center top; display: block; position: absolute; right: 5px; top: 0; font-family: Courier; height: 28px; line-height: 28px; padding:1px 0 3px 0; }
+
+div.paragraph ul, div.paragraph ol { padding-left: 2.3em !important; margin: 5px 0 !important; overflow:hidden; }
+div.paragraph li { padding-left: 5px !important; margin: 3px 0 0 !important; }
+div.paragraph ul, div.paragraph ul li { list-style: disc outside !important; }
+div.paragraph ol, div.paragraph ol li { list-style: decimal outside !important; }
+blockquote { margin: 10px 0; padding-left: 20px; border-left: 4px solid #ddd; font-style: italic; line-height: 170%; }

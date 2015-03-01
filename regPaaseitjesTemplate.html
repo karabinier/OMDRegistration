@@ -1,8 +1,10 @@
             <div class="row">
-                <div class="col-lg-1"></div>
-                <div class="col-lg-10">
+                <!--<div class="col-lg-1"></div>-->
+                <div class="col-lg-12">
                
-                    <div class="well">
+                  <!--  <div class="well">-->
+                    
+                    
 
                          <div class="alert alert-success alert-dismissible" style="display:none" role="alert">
                           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -13,62 +15,76 @@
                           <fieldset id="registrationForm" ng-disabled="!registration.selectedActivity.registrationAllowed">
                             <legend>Inschrijvingsformulier {{registration.selectedActivity.name}}</legend>
 
+<div class="form-group"><div class="wsite-image wsite-image-border-none " style="padding-top:10px;padding-bottom:10px;margin-left:0;margin-right:0;text-align:center">
+<a>
+<img src="http://www.paaseitjeswandelingtervuren.be//uploads/9/0/4/3/9043915/2037435_orig.gif" alt="Picture" style="width:100%;max-width:300px">
+</a>
+<div style="display:block;font-size:90%"></div>
+</div></div>                              
+                              
+                              
                            <div class="alert alert-danger" style="" role="alert" ng-show="!registration.selectedActivity.registrationAllowed">
                               Inschrijven voor '{{registration.selectedActivity.name}}' is mogelijk vanaf maandag 11 augustus.  Gelieve op een later tijdstip opnieuw te proberen.  Klik <a href="{{registration.selectedActivity.redirectUrl}}" target="_self">hier</a> om terug te keren naar de lijst met activiteiten.
                             </div>  
+                              
+                             <div class="alert alert-warning" style="" role="alert" ng-show="registration.selectedActivity.registrationAllowed">
+                              Deelnameprijs: 2.5 euro per kind (gratis voor kinderen jonger dan&nbsp;3 jaar)<br><b>Gelieve te betalen op rekeningnummer BE15 0910 1966 2030 met vermelding van Paaseitjeswandeling + naam + vertrekuur</b>
+                            </div>  
+                                                            
+                              
 
                             <div class="form-group">
                               <label for="inputEmail" class="col-lg-2 control-label">Voornaam</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <input type="text" class="form-control" id="inputFirstName" placeholder="Voornaam" ng-model="registration.firstName" required>
                               </div>
                             </div>
 
                             <div class="form-group">
                               <label for="inputEmail" class="col-lg-2 control-label">Naam</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <input type="text" class="form-control" id="inputLastName" placeholder="Naam" ng-model="registration.lastName" required>
                               </div>
                             </div>
 
                             <div class="form-group">
-                              <label for="inputEmail" class="col-lg-2 control-label">Telefoon nr/GSM</label>
-                              <div class="col-lg-10">
+                              <label for="inputEmail" class="col-lg-2 control-label">Tel</label>
+                              <div class="col-lg-12">
                                 <input type="text" class="form-control" id="inputTel" placeholder="Telefoon nummer" ng-model="registration.tel" required>
                               </div>
                             </div>
 
                             <div class="form-group">
                               <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="registration.email" required>
                               </div>
                             </div>
 
                             <div class="form-group">
                               <label for="inputEmail" class="col-lg-2 control-label">Straat en huisnummer</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <input type="text" class="form-control" id="inputAddress" placeholder="Address" ng-model="registration.address" required>
                               </div>
                             </div> 
                               
                             <div class="form-group">
                               <label for="inputEmail" class="col-lg-2 control-label">Postcode</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <input type="text" class="form-control" id="inputPostCode" placeholder="Postcode" ng-model="registration.postcode" required>
                               </div>
                             </div> 
                               
                             <div class="form-group">
                               <label for="inputEmail" class="col-lg-2 control-label">Gemeente</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <input type="text" class="form-control" id="inputCity" placeholder="Gemeente" ng-model="registration.city" required>
                               </div>
                             </div>                               
 
                             <div class="form-group">
                               <label for="inputEmail" class="col-lg-2 control-label">Aantal kinderen</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <input type="text" class="form-control" id="inputNumberOfPersons" placeholder="Aantal personen" ng-model="registration.numberOfPersons" required>
                               </div>
                             </div>
@@ -76,27 +92,32 @@
 
                             <div class="form-group">
                               <label for="textArea" class="col-lg-2 control-label">Commentaar</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <textarea class="form-control" rows="3" id="textArea" ng-model="registration.comment"></textarea>
                               </div>
                             </div>
                             
                             <div class="form-group">
                               <label for="select" class="col-lg-2 control-label">Vertrekuur</label>
-                              <div class="col-lg-10">
+                              <div class="col-lg-12">
                                 <select class="form-control" id="select"  ng-model="registration.hourDeparture" required>
                                   <option ng-repeat="h in registration.selectedActivity.departureHours">{{h}}</option>
                                 </select>
                               </div>
                             </div>
                             <div class="form-group">
-                              <div class="col-lg-10 col-lg-offset-2">
-                                <button ng-click="postToGoogle()" class="btn btn-primary">Verstuur</button> 
+                              <div class="col-lg-12">
+                                &nbsp;
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-lg-12">
+                                <button ng-click="postToGoogle()" class="btn btn-primary">Verstuur</button> <button ng-click="postToGoogle()" class="btn">Terug</button> 
                               </div>
                             </div>
                           </fieldset>
                         </form>                        
-                    </div>
+                    <!--</div>-->
                 </div>
-                <div class="col-lg-1"></div>
+                <!--<div class="col-lg-1"></div>-->
         </div>

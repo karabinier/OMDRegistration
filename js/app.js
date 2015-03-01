@@ -24,7 +24,7 @@ app.config(['$routeProvider',
         controller: 'appCtrl'
       }).     
       otherwise({
-        redirectTo: '/home'
+        redirectTo: '/homes'
       });
   }]);
 

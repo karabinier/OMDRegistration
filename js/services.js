@@ -153,7 +153,7 @@ app.factory('Registration', function ($rootScope) {
                 ,
                 {   id : 10,
                     registrationAllowed: true,
-                    name: 'Paaseitjeswandeling Tervuren!',
+                    name: 'Paaseitjeswandeling Tervuren',
                     departureHours: [],
                     formUrl: mBassadeurFormUrl,
                     redirectUrl: mBassadeurRedirectUrl
