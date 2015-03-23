@@ -174,7 +174,7 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 10,
                     registrationAllowed: true,
                     name: 'Paaseitjeswandeling Tervuren',
-                    departureHours: ['14u15', '14u30', '14u45', '15u30', '15u45'],
+                    departureHours: ['14u30', '14u45', '15u30', '15u45'],
                     formUrl: mBassadeurFormUrl,
                     redirectUrl: 'http://www.paaseitjeswandelingtervuren.be'
                 }
