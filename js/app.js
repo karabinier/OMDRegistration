@@ -11,7 +11,7 @@ app.config(['$routeProvider',
         templateUrl: 'registerTemplate.html',
         controller: 'appCtrl'
       }). 
-    when('/home', {
+    when('/:eventId', {
         templateUrl: 'homeTemplate.html',
         controller: 'appCtrl'
       }). 
