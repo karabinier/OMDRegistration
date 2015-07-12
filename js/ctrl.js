@@ -72,22 +72,23 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
 
     
     $scope.activities = Registration.getActivities();
+    $scope.topUrl = $sce.trustAsResourceUrl("http://sites.google.com/site/omdtervuren/" + $routeParams.eventId );
     $scope.activityId = $routeParams.eventId;
     $scope.activityUrl = $sce.trustAsResourceUrl(getActivityUrl());
     $scope.subActivityUrl = $sce.trustAsResourceUrl(getSubActivityUrl());
     
     function getActivityUrl(){
-        var googleSitesUrl="https://sites.google.com/site/omdtervuren/omdtervuren/";
+        var googleSitesUrl="http://sites.google.com/site/omdtervuren/omdtervuren/";
         if($routeParams.eventId != 0)
-            return "https://sites.google.com/site/omdtervuren/omdtervuren/" + $routeParams.eventId + "?output=embed-";  
+            return "http://sites.google.com/site/omdtervuren/omdtervuren/" + $routeParams.eventId + "?output=embed-";  
         return googleSitesUrl + "?output=embed-";
         
     };
     
     function getSubActivityUrl(){
-        var googleSitesUrl="https://sites.google.com/site/omdtervuren/omdtervuren/";
+        var googleSitesUrl="http://sites.google.com/site/omdtervuren/omdtervuren/";
         if($routeParams.eventId != 0)
-            return "https://sites.google.com/site/omdtervuren/omdtervuren/" + $routeParams.eventId + "/" + $routeParams.subEvent + "?output=embed-";  
+            return "http://sites.google.com/site/omdtervuren/omdtervuren/" + $routeParams.eventId + "/" + $routeParams.subEvent + "?output=embed-";  
         return googleSitesUrl + "?output=embed-";
         
     };
