@@ -39,8 +39,26 @@
       ga('send', 'pageview');
 
     </script>
+    <script language="JavaScript">
+
+function resize_iframe()
+{
+
+	var height=window.innerWidth;//Firefox
+	if (document.body.clientHeight)
+	{
+		height=document.body.clientHeight;//IE
+	}
+
+	document.getElementById("fallback").style.height=parseInt(height-document.getElementById("fallback").offsetTop-30)+"px";//resize the iframe according to the size of the window
+	//document.getElementById("glu").height=document.body.offsetHeight-document.getElementById("glu").offsetTop-26;
+}
+
+
+</script>
+    
 </head>
-<body ng-controller="appCtrl">
+<body ng-controller="appCtrl" onload="resize_iframe()">
 
 
     <div class="container">
@@ -70,8 +88,8 @@
                     <div class="collapse navbar-collapse" id="navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <li ng-class="getClass('/home')"><a href="#/home">Home</a></li>
-                            <li ng-class="getClass('/thema')"><a href="#/home">Thema</a></li>
-                            <li ng-class="getClass('/register')"><a href="#/home">Activiteiten</a></li>
+                            <li ng-class="getClass('/thema')"><a href="#/thema">Thema</a></li>
+                            <li ng-class="getClass('/activiteiten')"><a href="#/activiteiten/0">Activiteiten</a></li>
                             <li ng-class="getClass('/plan')"><a href="#/home">Plan</a></li>
                             <li ng-class="getClass('/links')"><a href="#/home">Links</a></li>
                             <li ng-class="getClass('/contact')"><a href="#/contact">Contact</a></li>

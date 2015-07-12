@@ -15,6 +15,14 @@ app.config(['$routeProvider',
         templateUrl: 'homeTemplate.html',
         controller: 'appCtrl'
       }). 
+    when('/thema', {
+        templateUrl: 'activiteitenTemplate.html',
+        controller: 'appCtrl'
+      }). 
+    when('/activiteiten/:eventId', {
+        templateUrl: 'activiteitenTemplate.html',
+        controller: 'appCtrl'
+      }).     
     when('/registreer/:eventId', {
         templateUrl: 'regPaaseitjesTemplate.html',
         controller: 'appCtrl'

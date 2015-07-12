@@ -1,5 +1,5 @@
 
-function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParams, $window) {
+function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParams, $window, $sce) {
     $scope.info = {};
        // $scope.browserSupported = $scope.checkBrowserSupport();
         $rootScope.updateSession = function (params) {
@@ -13,6 +13,11 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
                         
             
     };
+    
+      $scope.$on('$viewContentLoaded', function(){
+    //$scope.msg= $route.current.templateUrl + ' is loaded !!';
+          resize_iframe();
+  });
     
     $scope.getClass = function(path) {
         if ($location.path().substr(0, path.length) == path) {
@@ -67,6 +72,16 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
 
     
     $scope.activities = Registration.getActivities();
+    
+    $scope.activityUrl = $sce.trustAsResourceUrl(getActivityUrl());
+    
+    function getActivityUrl(){
+        var googleSitesUrl="https://sites.google.com/site/omdtervuren/omdtervuren/";
+        if($routeParams.eventId != 0)
+            return "https://sites.google.com/site/omdtervuren/omdtervuren/" + $routeParams.eventId + "?output=embed-";  
+        return googleSitesUrl + "?output=embed-";
+        
+    };
 
   $scope.registration = {
     selectedActivity : $scope.activities[$routeParams.eventId],
