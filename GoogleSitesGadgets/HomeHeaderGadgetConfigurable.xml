@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+  <ModulePrefs title="Homepage gadget" >
+    <Require feature="setprefs"/>
+  </ModulePrefs>
+  <UserPref name="txt" display_name="Tekst" required="true" />
+  <Content type="html" view="home">
+    <![CDATA[
+      <link rel="stylesheet" type="text/css" href="http://www.omdtervuren.be/style.css?attredirects=0&d=1">
+      <script type="text/javascript" src="http://www.omdtervuren.be/script.js?attredirects=0&d=1"></script>  
+  
+      <script type="text/javascript">
+        function onLoad() {
+        PreloadImages();
+          var prefs = new _IG_Prefs();
+          document.getElementById('content').innerHTML = prefs.getString("txt");
+        };
+        gadgets.util.registerOnLoadHandler(onLoad);
+      </script>
+  
+    <div class="headerNavigation">
+      <a href="http://www.omdtervuren.be/home" target="_top">HOME</a>
+      <a href="http://www.omdtervuren.be/thema-1" target="_top">THEMA</a>
+      <a href="http://www.omdtervuren.be/omdtervuren" target="_top">ACTIVITEITEN</a>
+      <a href="http://www.omdtervuren.be/plan" target="_top">PLAN</a>
+      <!--<a href="http://www.omdtervuren.be/links" target="_top">LINKS</a>-->
+      <a href="http://www.omdtervuren.be/contact" target="_top">CONTACT</a>
+    </div>
+  
+    <div class="headerSpacer"></div>
+  
+    <!--<div class="headerPics" id="headerPics">    
+     <img id="2013headerpic1" onmouseover="LightUpImage(this)" onmouseout="LightDownImage(this)" src="http://www.omdtervuren.be/2014headerpic1.png" />     
+     <img id="2013headerpic2" onmouseover="LightUpImage(this)" onmouseout="LightDownImage(this)" src="http://www.omdtervuren.be/2014headerpic2.png" />        
+     <img id="2013headerpic3" onmouseover="LightUpImage(this)" onmouseout="LightDownImage(this)" src="http://www.omdtervuren.be/2014headerpic3.png" />         
+     <img id="2013headerpic4" onmouseover="LightUpImage(this)" onmouseout="LightDownImage(this)" src="http://www.omdtervuren.be/2014headerpic4.png" />     
+     <img id="2013headerpic5" onmouseover="LightUpImage(this)" onmouseout="LightDownImage(this)" src="http://www.omdtervuren.be/2013headerpic5.png" />        
+    </div>
+  -->
+    <div class="wrapper">
+      <div  id="content"></div>
+     <!-- <div class="right">class="left"
+        <img id="bigPicture" src="http://www.omdtervuren.be/2014Bigpic.png?attredirects=0&d=1"/>
+      </div>
+-->
+    </div>
+  
+    <div class="headerSpacer"></div>
+  
+    <div class="headerFooter">
+          
+      <img src="http://www.omdtervuren.be/logoToerismeTervuren.png?attredirects=0&d=1" alt="Toerisme Tervuren"/>
+      <img src="http://www.omdtervuren.be/logoTervuren.png?attredirects=0&d=1" alt="Tervuren - verrassend veelzijdig"/>	  
+      <img src="http://www.omdtervuren.be/logoVlaamsBrabant.png?attredirects=0&d=1" alt="Provincie Vlaams-Brabant"/>
+      <!--<img src="http://www.omdtervuren.be/academie.png?attredirects=0&d=1" alt="Academie voor podiumkunsten"/>-->
+      <img src="http://www.omdtervuren.be/logoOMDVlaanderen.png?attredirects=0&d=1" alt="Open Monumenten Dag Vlaanderen"/>    
+	  <!--<img src="http://www.omdtervuren.be/LogoPasar.png?attredirects=0&d=1" alt="Pasar"/>-->
+    </div> 
+  ]]>
+  </Content>
+
+  <Content type="html" view="configuration" preferred_height="250">
+  <![CDATA[
+    <style type="text/css">
+      p {font-weight:bold}
+      textarea {width:100%; height:200px; font:10pt monospace; color:#006000; background-color:#efefef; border:1px solid #d3d3d3; padding:0.5em 0 0.5em 1em; line-height:100%}
+    </style>
+    <p>Inhoud:</p>
+    <textarea id="txt" rows="1" cols="1">__UP_txt__</textarea>
+  
+    <script type="text/javascript">
+    function registerHandlers() {
+      var prefs = new gadgets.Prefs();
+      var pref = document.getElementById('txt');
+      var handler = function() { prefs.set('txt', document.getElementById('txt').value);  };
+
+      pref.onchange = handler;
+      pref.onkeyup = handler;
+    };
+    gadgets.util.registerOnLoadHandler(registerHandlers);
+  </script>
+  ]]>
+  </Content>
+</Module>
