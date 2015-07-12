@@ -23,7 +23,7 @@ app.config(['$routeProvider',
         templateUrl: 'activiteitenTemplate.html',
         controller: 'appCtrl'
       }).   
-    when('/activiteiten/:eventId/:subevent', {
+    when('/activiteiten/:eventId/:subEvent', {
         templateUrl: 'subActiviteitenTemplate.html',
         controller: 'appCtrl'
       }).       
