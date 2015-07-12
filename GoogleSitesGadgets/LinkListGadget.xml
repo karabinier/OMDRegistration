@@ -99,8 +99,9 @@ function RenderUserPrefs()
     /*html = html + '<tr><td><a' + val[0] + '</td><td>' + val[1] + '</td></tr>';  */
     html = html + '<li style=\'font-weight:normal; color:white\'>';
     html = html + '<a href=\'' + val[1] + '\'<font size=\'2\'>' + val[0] + '</font></a>';  
-    html = html + '<a href=\'javascript:Edit(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/edit.png?attredirects=0&d=1\'/></a>';  
-    html = html + '<a href=\'javascript:Delete(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/delete.png?attredirects=0&d=1\'/></a></li>';      
+    html = html + '<a href=\'javascript:Edit(' + i + ')\'><img src=\'http://www.omdtervuren.be/content/img/edit.png\'/></a>';  
+    html = html + '<a href=\'javascript:Edit(' + i + ')\'><img src=\'http://www.omdtervuren.be/content/img/edit.png\'/></a>';  
+    html = html + '<a href=\'javascript:Delete(' + i + ')\'><img src=\'http://www.omdtervuren.be/content/img/delete.png\'/></a></li>';      
   }  
   if(myArray.length != 0)
     html + '</ul>'; 
