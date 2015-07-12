@@ -1,0 +1,126 @@
+body
+{
+  margin:0px;
+  background-color:#2A2925;
+  color:#FFFFFF;
+}
+
+.headerOMD
+{  
+	/*width: 960px;
+	height: 91px;
+	background: url('http://7599128416849632827-a-1802744773732722657-s-sites.googlegroups.com/site/omdtervuren/HeaderOMD.png') repeat-x;*/
+}
+
+.headerPics
+{
+  width: 950px;
+	height: 147px;
+	background-color:#FFFFFF;
+}
+
+.headerPics img
+{
+  margin-top:2px;
+  margin-left:6px;
+  margin-right:0px;
+}
+
+.headerNavigation
+{
+  text-align:center;
+  padding-top:5px;
+  padding-bottom:0px;
+  width: 950px;
+	height: 26px;
+	color:#FFFFFF;
+	background-color:#27bdb5;/*#8BB73E;*/
+}
+
+.headerNavigation a
+{
+  font: 14px/normal Verdana, Arial;
+  padding-top:30px;
+  margin-right:35px;
+  color:#FFFFFF;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.headerNavigation a:hover
+{
+  color:#2A2925;
+}
+
+.headerNavigation a:active, a:visited
+{
+  color:#FFFFFF;
+}
+
+.headerSpacer
+{
+  width: 960px;
+	height: 19px;
+	/*background: url('http://7599128416849632827-a-1802744773732722657-s-sites.googlegroups.com/site/omdtervuren/HeaderBottomLine.png') repeat-x;*/
+}
+
+.wrapper 
+{
+  width: 960px;
+  position: relative;
+  clear: both;
+  height:390px;
+}
+
+.left 
+{
+  width: 559px;  
+  position: relative;
+  float: left;
+  height:390px;
+  
+}
+
+.right 
+{
+  margin-right:10px;
+  width: 381px;
+  background-color: #FFFFFF;
+  position: relative;
+  float: right;
+  height:200px;
+}
+
+.right img
+{
+  margin-top:1px;
+  margin-left:7px;
+  margin-right:0px;  
+} 
+
+.headerLogo
+{
+  text-align:center;
+  width: 960px;
+	height: 92px;
+	background-color:#FFFFFF;	
+}
+
+.headerFooter
+{
+  text-align:center;
+  width: 960px;
+  height: 92px;
+  background-color:#FFFFFF; 
+}
+
+.headerFooter img
+{
+  margin-right: 75px;
+}
+
+.backDiv
+{
+  text-align:right;
+	height: 61px;
+}

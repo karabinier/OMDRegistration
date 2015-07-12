@@ -6,8 +6,8 @@
   <UserPref name="txt" display_name="Tekst" required="true" />
   <Content type="html" view="home">
     <![CDATA[
-      <link rel="stylesheet" type="text/css" href="http://www.omdtervuren.be/style.css?attredirects=0&d=1">
-      <script type="text/javascript" src="http://www.omdtervuren.be/script.js?attredirects=0&d=1"></script>  
+      <link rel="stylesheet" type="text/css" href="http://www.omdtervuren.be/content/css/googleSitesOMD.css">
+      <script type="text/javascript" src="http://www.omdtervuren.be/js/script.js"></script>  
   
       <script type="text/javascript">
         function onLoad() {
