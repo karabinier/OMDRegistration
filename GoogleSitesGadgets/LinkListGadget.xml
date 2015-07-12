@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+
+<ModulePrefs 
+title="Lijstje met links"
+width="400"
+height="300">
+<Require feature="setprefs"/>
+</ModulePrefs>
+
+
+<UserPref name="baseurl" display_name="Basis url:" required="true" />
+<UserPref name="mylist" display_name="Lijstje:" required="true" datatype="list" />
+
+
+<Content type="html" view="home">
+<![CDATA[
+
+<style type="text/css">
+body {background-color:transparent}
+a{text-decoration:none; color:white;}
+a:hover{ text-decoration:underline;}
+a:visited{color:white;}
+</style>
+
+<script type="text/javascript">
+function onLoad() {
+  var prefs = new _IG_Prefs();  
+  var myArray = prefs.getArray('mylist');
+    
+  if(myArray.length > 0)
+    document.write('<ul>');
+
+  
+  
+  var html = '';
+  for (var i = 0; i < myArray.length ; i++) {  
+    var val = myArray[i].split('$');    
+    html = html + '<li style=\'font-weight:normal; color:white\'>';
+    
+    var baseUrl=prefs.getString('baseurl');
+    var url = val[1];
+    if(url.indexOf('http') == -1)
+      url = baseUrl + url;
+               
+    html = html + '<a href=\'' + url + '\' target=\'_top\'><font size=\'2\'>' + val[0] + '</font></a></li>';    
+  }  
+
+  document.write(html);
+    
+  if(myArray.length > 0)
+    document.write('<ul>');
+    
+    
+}
+
+gadgets.util.registerOnLoadHandler(onLoad);
+
+</script>
+]]>
+</Content>
+
+
+<Content type="html" view="configuration" preferred_height="250">
+<![CDATA[
+
+<style type="text/css">
+p {font-weight:bold}
+</style>
+
+
+<!--<textarea id="code" rows="1" cols="1">__UP_mylist__</textarea>-->
+<p>Basis url: <input type="text" id="baseurl" value="__UP_baseurl__" style="width:300px"/>
+</p>
+<p>Beheer lijstje:</p>
+Tekst :<input type="text" id="text" style="width:250px"/>
+Url: <input type="text" id="url" style="width:250px"/>
+<input type="hidden" id="itemId" />
+<input type="button" onclick="AddToArray()" value="toevoegen" id="addButton" />
+<input type="button" onclick="Update()"  value="aanpassen" id="updateButton" style="display:none" />
+<input type="button" onclick="Cancel()"  value="annuleer" id="cancelButton" style="display:none" />
+
+<div id="content">Geen items in lijst</div>
+
+<script type="text/javascript">
+function RenderUserPrefs()
+{     
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  
+  var html="";
+  if(myArray.length == 0)
+    html="<font size=\'2\'><i>Geen items in lijst..</i></font>";
+  else
+    html="<ul>";
+    
+  for (var i = 0; i < myArray.length ; i++) {  
+    var val = myArray[i].split('$');
+    /*html = html + '<tr><td><a' + val[0] + '</td><td>' + val[1] + '</td></tr>';  */
+    html = html + '<li style=\'font-weight:normal; color:white\'>';
+    html = html + '<a href=\'' + val[1] + '\'<font size=\'2\'>' + val[0] + '</font></a>';  
+    html = html + '<a href=\'javascript:Edit(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/edit.png?attredirects=0&d=1\'/></a>';  
+    html = html + '<a href=\'javascript:Delete(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/delete.png?attredirects=0&d=1\'/></a></li>';      
+  }  
+  if(myArray.length != 0)
+    html + '</ul>'; 
+    
+  document.getElementById('content').innerHTML = html;
+}
+
+
+function AddToArray(){
+
+  var valText = document.getElementById('text').value;
+  var valUrl = document.getElementById('url').value;
+
+  ClearTextBoxes();
+
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+
+  myArray.push(valText + '$' + valUrl );
+
+  //var arrayAsString = ConvertArrayToString(myArray);
+  prefs.setArray('mylist',myArray);
+    
+  RenderUserPrefs();
+}
+
+function ClearTextBoxes()
+{
+  document.getElementById('text').value = '';
+  document.getElementById('url').value = '';
+}
+
+function Cancel()
+{
+  ClearTextBoxes();
+  ShowHideButton('addButton', true);
+  ShowHideButton('updateButton', false);
+  ShowHideButton('cancelButton', false);
+}
+
+function Edit(index){
+
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  
+  var val = myArray[index].split('$');  
+  
+  document.getElementById('itemId').value = index;
+  document.getElementById('text').value = val[0];
+  document.getElementById('url').value = val[1];
+  
+  ShowHideButton('addButton', false);
+  ShowHideButton('updateButton', true);
+  ShowHideButton('cancelButton', true);
+  
+}
+
+function Update(){
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  
+  var id = parseInt(document.getElementById('itemId').value);
+  
+  var valText = document.getElementById('text').value;
+  var valUrl = document.getElementById('url').value;
+   
+  myArray[id] = valText + '$' + valUrl;
+  
+  prefs.setArray('mylist',myArray);
+  
+  ClearTextBoxes();
+  
+  ShowHideButton('addButton', true);
+  ShowHideButton('updateButton', false); 
+  ShowHideButton('cancelButton', false);   
+    
+  RenderUserPrefs();
+}
+
+function Delete(index){
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  myArray.splice(index,1);
+  prefs.setArray('mylist',myArray);     
+      
+  RenderUserPrefs();  
+}
+
+
+function ShowHideButton(buttonId, showButton){
+if(showButton)
+  document.getElementById(buttonId).style.display='';
+else
+  document.getElementById(buttonId).style.display='none';
+}
+
+
+function ConvertArrayToString(myArray)
+{
+  var arrayAsString = '';
+  for (var i = 0; i < myArray.length ; i++) {
+    arrayAsString = arrayAsString + '|' + myArray[i];
+  }
+  
+  if(arrayAsString.length > 0)
+  {
+    arrayAsString = arrayAsString.substring(1);
+  }
+  return arrayAsString;
+}
+
+function registerHandlers() {
+  var prefs = new gadgets.Prefs();
+  var pref = document.getElementById('baseurl');
+  var handler = function() {
+    prefs.set('baseurl', document.getElementById('baseurl').value);
+  };
+  
+  pref.onchange = handler;
+  pref.onkeyup = handler;
+};
+gadgets.util.registerOnLoadHandler(registerHandlers);
+gadgets.util.registerOnLoadHandler(RenderUserPrefs);
+
+</script>
+]]>
+</Content>
+</Module>
