@@ -11,14 +11,18 @@ app.config(['$routeProvider',
         templateUrl: 'registerTemplate.html',
         controller: 'appCtrl'
       }). 
-    when('/:eventId', {
+    when('/home', {
         templateUrl: 'homeTemplate.html',
         controller: 'appCtrl'
-      }). 
-    when('/thema', {
-        templateUrl: 'activiteitenTemplate.html',
+      }).
+    when('/contact', {
+        templateUrl: 'contactTemplate.html',
         controller: 'appCtrl'
-      }). 
+      }).      
+    when('/:eventId', {
+        templateUrl: 'rootSiteTemplate.html',
+        controller: 'appCtrl'
+      }).     
     when('/activiteiten/:eventId', {
         templateUrl: 'activiteitenTemplate.html',
         controller: 'appCtrl'
@@ -30,11 +34,7 @@ app.config(['$routeProvider',
     when('/registreer/:eventId', {
         templateUrl: 'regPaaseitjesTemplate.html',
         controller: 'appCtrl'
-      }).     
-    when('/contact', {
-        templateUrl: 'contactTemplate.html',
-        controller: 'appCtrl'
-      }).     
+      }).        
       otherwise({
         redirectTo: '/home'
       });
