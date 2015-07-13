@@ -61,8 +61,14 @@ a:visited{color:#8BB73E;}
 
   function CreatePoints()
   {  
-    var map = new GMap2(document.getElementById('mapDiv'));
     
+    var map = new google.maps.Map(document.getElementById('mapDiv'), {
+      zoom: 13,
+      center: new google.maps.LatLng(50.84410451978967, 4.565677642822266),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+   /* var map = new GMap2(document.getElementById('mapDiv'));
     map.setCenter(new GLatLng(50.84410451978967, 4.565677642822266),13);
     map.addControl(new GMapTypeControl());
     map.addControl(new GScaleControl());
@@ -71,7 +77,7 @@ a:visited{color:#8BB73E;}
     map.enableScrollWheelZoom();
     map.enableDoubleClickZoom();
     map.enableContinuousZoom();
-    
+    */
     var prefs = new _IG_Prefs();
     var myArray = prefs.getArray('mylist');
     for (var i = 0; i < myArray.length ; i++) { 
@@ -86,14 +92,57 @@ a:visited{color:#8BB73E;}
          
        var lat = Number(val[2].split(',')[0]);
        var lng = Number(val[2].split(',')[1]);
-       var point = new GLatLng(lat,lng);
-       map.addOverlay(CreateMarker(point, name, '', url));
+       //var point = new GLatLng(lat,lng);
+       //map.addOverlay(CreateMarker(lat,lng, name, '', url));
+
+        var image = "http://google-maps-icons.googlecode.com/files/tower.png";
+        var myLatLng = new google.maps.LatLng(lat, lng);
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: image
+        });
+
+        var content = "<b>" + name + "</b><br/>" + "<a href='" + url + "' target='_top'><br/>Meer details</a>";
+        var infowindow = new google.maps.InfoWindow({
+          });
+        
+        var activeInfoWindow = null;
+
+      google.maps.event.addListener(marker, 'mouseover', function(marker, content, infowindow) {
+        return function() {
+          if(activeInfoWindow != null)
+            activeInfoWindow.close();
+
+          infowindow.setContent(content)
+          activeInfoWindow = infowindow;      
+          infowindow.open(map, marker);
+      }
+    }(marker,content,infowindow));
+
+      google.maps.event.addListener(marker, 'mouseclick', function(marker, content, infowindow) {
+        return function() {
+          if(activeInfoWindow != null)
+            activeInfoWindow.close();
+
+          infowindow.setContent(content)
+          activeInfoWindow = infowindow;      
+          infowindow.open(map, marker);
+      }
+    }(marker,content,infowindow));
+     
     }
   }
  
   // Creates a marker whose info window displays the letter corresponding to the given index.
-  function CreateMarker(point, name, adres, link) 
+  function CreateMarker(lat,lng, name, adres, link, map) 
   {
+
+
+
+
+
+
     // Create a base icon for all of our markers that specifies the
     // shadow, icon dimensions, etc.
     var baseIcon = new GIcon();
@@ -109,9 +158,12 @@ a:visited{color:#8BB73E;}
  
     // Set up our GMarkerOptions object
     markerOptions = { icon:myIcon };
-    var marker = new GMarker(point, markerOptions);
+    var marker = new new google.maps.Marker({
+        position: new google.maps.LatLng(lat,lng)
+}
+    );
  
-    GEvent.addListener(marker, "mouseover", function() 
+    google.maps.event.addListener(marker, "mouseover", function() 
     {
       marker.openInfoWindowHtml("<b>" + name + "</b><br/>" + "<a href='" + link + "' target='_top'><br/>Meer details</a>");
     });
@@ -121,17 +173,17 @@ a:visited{color:#8BB73E;}
             
   function Initialize() 
   {
-    if (GBrowserIsCompatible()) 
-    {    
+   /* if (GBrowserIsCompatible()) 
+    {*/    
       CreatePoints();                                          
-    }
+    /*}*/
   }
     
   gadgets.util.registerOnLoadHandler(onLoad);
   gadgets.util.registerOnLoadHandler(Initialize);
     
 </script> 
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA5I5_c3oWm5uvYZZqoU9R5xROek9Wz4XuUnY7lihRGpX3fu_dYhQ4PeqksPegbdmian6dQMt1fJ80qA"  type="text/javascript"/>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;key=AIzaSyDUuLFyfvcyHDIMy-qVhrOu-R8e5cJEz7Y"  type="text/javascript"/>
 
 ]]>
 </Content>
@@ -175,8 +227,8 @@ function RenderUserPrefs()
     /*html = html + '<tr><td><a' + val[0] + '</td><td>' + val[1] + '</td></tr>';  */
     html = html + '<li style=\'font-weight:normal; color:white\'>';
     html = html + '<a href=\'' + val[1] + '\'<font size=\'2\'>' + val[0] + '</font></a>';  
-    html = html + '<a href=\'javascript:Edit(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/edit.png?attredirects=0&d=1\'/></a>';  
-    html = html + '<a href=\'javascript:Delete(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/delete.png?attredirects=0&d=1\'/></a></li>';      
+    html = html + '<a href=\'javascript:Edit(' + i + ')\'><img src=\'www.omdtervuren.be/content/img/edit.png\'/></a>';  
+    html = html + '<a href=\'javascript:Delete(' + i + ')\'><img src=\'www.omdtervuren.be/content/img/delete.png\'/></a></li>';      
   }  
   if(myArray.length != 0)
     html + '</ul>'; 
