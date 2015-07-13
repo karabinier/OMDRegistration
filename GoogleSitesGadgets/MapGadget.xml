@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+
+<ModulePrefs 
+title="OMD Map gadget"
+width="400"
+height="300">
+<Require feature="setprefs"/>
+</ModulePrefs>
+
+
+<UserPref name="baseurl" display_name="Basis url:" required="true" />
+<UserPref name="mylist" display_name="Lijstje:" required="true" datatype="list" />
+
+
+<Content type="html" view="home">
+<![CDATA[
+
+<style type="text/css">
+body {background-color:transparent}
+a{text-decoration:none; color:#8BB73E;}
+a:hover{ text-decoration:underline;}
+a:visited{color:#8BB73E;}
+#mapDiv
+{
+  width: 960px; 
+  height: 600px;
+  border: #4E4E4E 1px solid;
+}
+</style>
+
+<div id="mapDiv"/> 
+
+<script type="text/javascript">
+  function onLoad() 
+  {
+    var prefs = new _IG_Prefs();  
+    var myArray = prefs.getArray('mylist');
+    
+   if(myArray.length > 0)
+      document.write('<ul>');
+  
+    var html = '';
+    for (var i = 0; i < myArray.length ; i++) {  
+     var val = myArray[i].split('$');    
+     html = html + '<li style=\'font-weight:normal; color:white\'>';
+    
+      var baseUrl=prefs.getString('baseurl');
+      var url = val[1];
+      if(url.indexOf('http') == -1)
+        url = baseUrl + url;
+               
+     html = html + '<a href=\'' + url + '\' target=\'_top\'><font size=\'2\'>' + val[0] + '</font></a></li>';    
+    }  
+
+    document.write(html);
+    
+    if(myArray.length > 0)
+      document.write('<ul>');        
+  }
+
+  function CreatePoints()
+  {  
+    var map = new GMap2(document.getElementById('mapDiv'));
+    
+    map.setCenter(new GLatLng(50.84410451978967, 4.565677642822266),13);
+    map.addControl(new GMapTypeControl());
+    map.addControl(new GScaleControl());
+    map.addControl(new GLargeMapControl());
+    map.addControl(new GOverviewMapControl());
+    map.enableScrollWheelZoom();
+    map.enableDoubleClickZoom();
+    map.enableContinuousZoom();
+    
+    var prefs = new _IG_Prefs();
+    var myArray = prefs.getArray('mylist');
+    for (var i = 0; i < myArray.length ; i++) { 
+       var val = myArray[i].split('$');
+       
+       var name = val[0];
+       
+       var baseUrl=prefs.getString('baseurl');
+       var url = val[1];
+       if(url.indexOf('http') == -1)
+         url = baseUrl + url;
+         
+       var lat = Number(val[2].split(',')[0]);
+       var lng = Number(val[2].split(',')[1]);
+       var point = new GLatLng(lat,lng);
+       map.addOverlay(CreateMarker(point, name, '', url));
+    }
+  }
+ 
+  // Creates a marker whose info window displays the letter corresponding to the given index.
+  function CreateMarker(point, name, adres, link) 
+  {
+    // Create a base icon for all of our markers that specifies the
+    // shadow, icon dimensions, etc.
+    var baseIcon = new GIcon();
+    //baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";
+    baseIcon.iconSize = new GSize(20, 34);
+    baseIcon.shadowSize = new GSize(37, 34);
+    baseIcon.iconAnchor = new GPoint(9, 34);
+    baseIcon.infoWindowAnchor = new GPoint(9, 2);
+    baseIcon.infoShadowAnchor = new GPoint(18, 25);
+     
+    var myIcon = new GIcon(baseIcon);
+    myIcon.image = "http://google-maps-icons.googlecode.com/files/tower.png";
+ 
+    // Set up our GMarkerOptions object
+    markerOptions = { icon:myIcon };
+    var marker = new GMarker(point, markerOptions);
+ 
+    GEvent.addListener(marker, "mouseover", function() 
+    {
+      marker.openInfoWindowHtml("<b>" + name + "</b><br/>" + "<a href='" + link + "' target='_top'><br/>Meer details</a>");
+    });
+  
+    return marker;
+  }
+            
+  function Initialize() 
+  {
+    if (GBrowserIsCompatible()) 
+    {    
+      CreatePoints();                                          
+    }
+  }
+    
+  gadgets.util.registerOnLoadHandler(onLoad);
+  gadgets.util.registerOnLoadHandler(Initialize);
+    
+</script> 
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA5I5_c3oWm5uvYZZqoU9R5xROek9Wz4XuUnY7lihRGpX3fu_dYhQ4PeqksPegbdmian6dQMt1fJ80qA"  type="text/javascript"/>
+
+]]>
+</Content>
+
+
+<Content type="html" view="configuration" preferred_height="250">
+<![CDATA[
+
+<style type="text/css">
+p {font-weight:bold}
+</style>
+
+
+<!--<textarea id="code" rows="1" cols="1">__UP_mylist__</textarea>-->
+<p>Basis url:<input type="text" id="baseurl" value="__UP_baseurl__" style="width:300px"/>
+</p>
+<p>Beheer activiteiten voor kaart:</p>
+<font size='2'>Beschrijving: <input type="text" id="text" style="width:250px"/>&nbsp;Url: <input type="text" id="url" style="width:250px"/><br/>
+Coords: <input type="text" id="coords" style="width:130px"/></font>
+<input type="hidden" id="itemId" />
+<input type="button" onclick="AddToArray()" value="toevoegen" id="addButton" />
+<input type="button" onclick="Update()"  value="aanpassen" id="updateButton" style="display:none" />
+<input type="button" onclick="Cancel()"  value="annuleer" id="cancelButton" style="display:none" />
+
+<div id="content">Geen items in lijst</div>
+
+<script type="text/javascript">
+function RenderUserPrefs()
+{     
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  
+  var html="";
+  if(myArray.length == 0)
+    html="<font size=\'2\'><i>Geen items in lijst..</i></font>";
+  else
+    html="<ul>";
+    
+  for (var i = 0; i < myArray.length ; i++) {  
+    var val = myArray[i].split('$');
+    /*html = html + '<tr><td><a' + val[0] + '</td><td>' + val[1] + '</td></tr>';  */
+    html = html + '<li style=\'font-weight:normal; color:white\'>';
+    html = html + '<a href=\'' + val[1] + '\'<font size=\'2\'>' + val[0] + '</font></a>';  
+    html = html + '<a href=\'javascript:Edit(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/edit.png?attredirects=0&d=1\'/></a>';  
+    html = html + '<a href=\'javascript:Delete(' + i + ')\'><img src=\'http://sites.google.com/site/omdtervuren/delete.png?attredirects=0&d=1\'/></a></li>';      
+  }  
+  if(myArray.length != 0)
+    html + '</ul>'; 
+    
+  document.getElementById('content').innerHTML = html;
+}
+
+
+function AddToArray(){
+
+  var valText = document.getElementById('text').value;
+  var valUrl = document.getElementById('url').value;
+  var valCoords = document.getElementById('coords').value;
+
+  ClearTextBoxes();
+
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+
+  myArray.push(valText + '$' + valUrl + '$' + valCoords);
+
+  //var arrayAsString = ConvertArrayToString(myArray);
+  prefs.setArray('mylist',myArray);
+    
+  RenderUserPrefs();
+}
+
+function ClearTextBoxes()
+{
+  document.getElementById('text').value = '';
+  document.getElementById('url').value = '';
+  document.getElementById('coords').value = '';
+}
+
+function Cancel()
+{
+  ClearTextBoxes();
+  ShowHideButton('addButton', true);
+  ShowHideButton('updateButton', false);
+  ShowHideButton('cancelButton', false);
+}
+
+function Edit(index){
+
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  
+  var val = myArray[index].split('$');  
+  
+  document.getElementById('itemId').value = index;
+  document.getElementById('text').value = val[0];
+  document.getElementById('url').value = val[1];
+  document.getElementById('coords').value = val[2];
+  
+  ShowHideButton('addButton', false);
+  ShowHideButton('updateButton', true);
+  ShowHideButton('cancelButton', true);
+  
+}
+
+
+function Update(){
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  
+  var id = parseInt(document.getElementById('itemId').value);
+  
+  var valText = document.getElementById('text').value;
+  var valUrl = document.getElementById('url').value;
+  var valCoords = document.getElementById('coords').value;
+   
+  myArray[id] = valText + '$' + valUrl + '$' + valCoords;
+  
+  prefs.setArray('mylist',myArray);
+  
+  ClearTextBoxes();
+  
+  ShowHideButton('addButton', true);
+  ShowHideButton('updateButton', false); 
+  ShowHideButton('cancelButton', false);    
+    
+  RenderUserPrefs();
+}
+
+function Delete(index){
+  var prefs = new gadgets.Prefs();
+  var myArray = prefs.getArray('mylist');
+  myArray.splice(index,1);
+  prefs.setArray('mylist',myArray);     
+      
+  RenderUserPrefs();  
+}
+
+
+function ShowHideButton(buttonId, showButton){
+if(showButton)
+  document.getElementById(buttonId).style.display='';
+else
+  document.getElementById(buttonId).style.display='none';
+}
+
+
+function registerHandlers() {
+  var prefs = new gadgets.Prefs();
+  var pref = document.getElementById('baseurl');
+  var handler = function() {
+    prefs.set('baseurl', document.getElementById('baseurl').value);
+  };
+  
+  pref.onchange = handler;
+  pref.onkeyup = handler;
+};
+gadgets.util.registerOnLoadHandler(registerHandlers);
+gadgets.util.registerOnLoadHandler(RenderUserPrefs);
+
+</script>
+]]>
+</Content>
+</Module>
