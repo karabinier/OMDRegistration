@@ -50,14 +50,14 @@ function resize_iframe()
 		height=document.body.clientHeight;//IE
 	}
 
-	document.getElementById("fallback").style.height=parseInt(height-document.getElementById("fallback").offsetTop-200)+"px";//resize the iframe according to the size of the window
+	document.getElementById("fallback").style.height=parseInt(height-document.getElementById("fallback").offsetTop)+"px";//resize the iframe according to the size of the window
 	//document.getElementById("glu").height=document.body.offsetHeight-document.getElementById("glu").offsetTop-26;
 }
 
 
 </script>
     
-</head>
+</head><!--"-->
 <body ng-controller="appCtrl" onload="resize_iframe()">
 
 

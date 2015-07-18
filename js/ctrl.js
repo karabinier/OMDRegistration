@@ -15,7 +15,6 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
     };
     
       $scope.$on('$viewContentLoaded', function(){
-    //$scope.msg= $route.current.templateUrl + ' is loaded !!';
           resize_iframe();
   });
     
