@@ -15,9 +15,9 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
     };
     
 /*      $scope.$on('$viewContentLoaded', function(){
-          resize_iframe();*/
+          resize_iframe();
   });
-    
+    */
     $scope.getClass = function(path) {
         if ($location.path().substr(0, path.length) == path) {
             return "active"
