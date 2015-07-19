@@ -6,8 +6,8 @@
 
   <Content type="html" view="home">
     <![CDATA[
-
-      <script type="text/javascript" src="http://www.omdtervuren.be/js/iframeResizer.contentWindow.min.js"></script>  
+        <!-- the .js files should be stored on google sites, otherwise error because of loading non https content or content from other domain -->
+      <script type="text/javascript" src="https://sites.google.com/site/omdtervuren/iframeResizer.contentWindow.min.js?attredirects=0&d=1"></script>  
   
   ]]>
   </Content>
