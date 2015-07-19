@@ -16,19 +16,19 @@ app.config(['$routeProvider',
         controller: 'appCtrl'
       }).
     when('/contact', {
-        templateUrl: 'contactTemplate.html',
+        templateUrl: 'Templates/contactTemplate.html',
         controller: 'appCtrl'
       }).      
     when('/:eventId', {
-        templateUrl: 'rootSiteTemplate.html',
+        templateUrl: 'Templates/rootSiteTemplate.html',
         controller: 'appCtrl'
       }).     
     when('/activiteiten/:eventId', {
-        templateUrl: 'activiteitenTemplate.html',
+        templateUrl: 'Templates/activiteitenTemplate.html',
         controller: 'appCtrl'
       }).   
     when('/activiteiten/:eventId/:subEvent', {
-        templateUrl: 'subActiviteitenTemplate.html',
+        templateUrl: 'Templates/subActiviteitenTemplate.html',
         controller: 'appCtrl'
       }).       
     when('/registreer/:eventId', {
