@@ -23,10 +23,18 @@ app.config(['$routeProvider',
         templateUrl: 'Templates/rootSiteTemplate.html',
         controller: 'appCtrl'
       }).     
+    when('/omdtervuren/:eventId', {
+        templateUrl: 'Templates/activiteitenTemplate.html',
+        controller: 'appCtrl'
+      }).
     when('/activiteiten/:eventId', {
         templateUrl: 'Templates/activiteitenTemplate.html',
         controller: 'appCtrl'
       }).   
+    when('/omdtervuren/:eventId/:subEvent', {
+        templateUrl: 'Templates/subActiviteitenTemplate.html',
+        controller: 'appCtrl'
+      }).  
     when('/activiteiten/:eventId/:subEvent', {
         templateUrl: 'Templates/subActiviteitenTemplate.html',
         controller: 'appCtrl'
