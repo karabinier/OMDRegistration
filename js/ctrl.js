@@ -11,13 +11,15 @@ function appCtrl(Registration, $scope, $rootScope, $http, $location, $routeParam
     
         $rootScope.userData = {'pointsBrazil': '' };
                         
-            
+             
     };
     
-/*      $scope.$on('$viewContentLoaded', function(){
+      /*$scope.$on('$viewContentLoaded', function(){
           resize_iframe();
-  });
-    */
+  });*/
+    
+
+    
     $scope.getClass = function(path) {
         if ($location.path().substr(0, path.length) == path) {
             return "active"
