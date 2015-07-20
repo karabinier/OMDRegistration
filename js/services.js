@@ -92,35 +92,35 @@ app.factory('Registration', function ($rootScope) {
             var defaultFormUrl = "https://docs.google.com/a/lacage.be/forms/d/1b8TYQf0ITtSpY4FuhC86jrfCPYWtMtOntIj78Thldqw/formResponse";
             var mBassadeurFormUrl = "https://docs.google.com/a/lacage.be/forms/d/1b8TYQf0ITtSpY4FuhC86jrfCPYWtMtOntIj78Thldqw/formResponse";
             
-            var defaultRegistrationAllowed = true;
+            var defaultRegistrationAllowed = new Date()>=new Date(2015, 8, 3);
             var defaultRedirectUrl = "http://www.omdtervuren.be/#/activiteiten/2";
             var mBassadeurRedirectUrl = "http://www.omdtervuren.be";
             
             var defaultDeptHours = ['10u', '11u', '12u', '14u', '15u', '16u', '17u']
 
             return [
-                {   id : 1,
+                {   id : 0,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De kazerne Panquin',
                     departureHours: ['10u', '10u20', '10u40', '11u', '11u20', '11u40', '12u', '12u20', '13u20', '13u40', '14u', '14u20', '14u40', '15u', '15u20', '15u40', '16u', '16u20', '16u40', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
-                {   id : 2,
+                {   id : 1,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De 18de eeuwse Kasteelstraat',
                     departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
-                {   id : 3,
+                {   id : 2,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De eerste sociale woonwijk van Tervuren',
                     departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
-                {   id : 4,
+                {   id : 3,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'Een geheel van vier cottages in de Hertogenweg',
                     departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
