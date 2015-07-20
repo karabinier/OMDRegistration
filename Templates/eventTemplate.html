@@ -1,0 +1,88 @@
+            <div class="row">
+                <div class="col-lg-1"></div>
+                <div class="col-lg-10">
+               
+                    <div class="well">
+
+                         <div class="alert alert-success alert-dismissible" style="display:none" role="alert">
+                          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                          <strong>Bedankt!</strong>&nbsp;&nbsp;Uw inschrijving voor '{{registration.selectedActivity.name}}' werd succesvol geregistreerd.  Klik <a href="{{registration.selectedActivity.redirectUrl}}" target="_self">hier</a> om terug te keren naar de lijst met activiteiten.
+                        </div>  
+
+                        <form class="bs-example form-horizontal" name="registrationForm" novalidate>
+                          <fieldset id="registrationForm" ng-disabled="!registration.selectedActivity.registrationAllowed">
+                            <legend>Inschrijvingsformulier {{registration.selectedActivity.name}}</legend>
+
+                           <div class="alert alert-danger" style="" role="alert" ng-show="!registration.selectedActivity.registrationAllowed">
+                              Inschrijven voor '{{registration.selectedActivity.name}}' is mogelijk vanaf maandag 13 augustus.  Gelieve op een later tijdstip opnieuw te proberen.  Klik <a href="{{registration.selectedActivity.redirectUrl}}" target="_self">hier</a> om terug te keren naar de lijst met activiteiten.
+                            </div>  
+
+                            <div class="form-group">
+                              <label for="inputEmail" class="col-lg-2 control-label">Voornaam</label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputFirstName" placeholder="Voornaam" ng-model="registration.firstName" required>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="inputEmail" class="col-lg-2 control-label">Naam</label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputLastName" placeholder="Naam" ng-model="registration.lastName" required>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="inputEmail" class="col-lg-2 control-label">Telefoon nr/GSM</label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputTel" placeholder="Telefoon nummer" ng-model="registration.tel" required>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                              <div class="col-lg-10">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="registration.email" required>
+                              </div>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="inputEmail" class="col-lg-2 control-label">Postcode</label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputPostCode" placeholder="Postcode" ng-model="registration.postcode" required>
+                              </div>
+                            </div>                            
+
+                            <div class="form-group">
+                              <label for="inputEmail" class="col-lg-2 control-label">Aantal personen</label>
+                              <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputNumberOfPersons" placeholder="Aantal personen" ng-model="registration.numberOfPersons" required>
+                              </div>
+                            </div>
+
+
+                            <div class="form-group">
+                              <label for="textArea" class="col-lg-2 control-label">Commentaar</label>
+                              <div class="col-lg-10">
+                                <textarea class="form-control" rows="3" id="textArea" ng-model="registration.comment"></textarea>
+                              </div>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label for="select" class="col-lg-2 control-label">Vertrekuur</label>
+                              <div class="col-lg-10">
+                                <select class="form-control" id="select"  ng-model="registration.hourDeparture" required>
+                                  <option ng-repeat="h in registration.selectedActivity.departureHours">{{h}}</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <div class="col-lg-10 col-lg-offset-2">
+                                <button ng-click="postToGoogle()" class="btn btn-primary">Verstuur</button> 
+                              </div>
+                            </div>
+                          </fieldset>
+                        </form>                        
+                    </div>
+                </div>
+                <div class="col-lg-1"></div>
+        </div>

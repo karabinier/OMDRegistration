@@ -3,8 +3,8 @@ var app = angular.module('loginApp', ['RegistrationProvider','ngRoute']);
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/events/:eventId', {
-        templateUrl: 'eventTemplate.html',
+      when('/event/:eventId', {
+        templateUrl: 'Templates/eventTemplate.html',
         controller: 'appCtrl'
       }).
     when('/register/:eventId', {

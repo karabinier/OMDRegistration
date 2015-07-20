@@ -92,79 +92,44 @@ app.factory('Registration', function ($rootScope) {
             var defaultFormUrl = "https://docs.google.com/a/lacage.be/forms/d/1b8TYQf0ITtSpY4FuhC86jrfCPYWtMtOntIj78Thldqw/formResponse";
             var mBassadeurFormUrl = "https://docs.google.com/a/lacage.be/forms/d/1b8TYQf0ITtSpY4FuhC86jrfCPYWtMtOntIj78Thldqw/formResponse";
             
-            var defaultRegistrationAllowed = false;
-            var defaultRedirectUrl = "http://www.omdtervuren.be/omdtervuren";
+            var defaultRegistrationAllowed = true;
+            var defaultRedirectUrl = "http://www.omdtervuren.be/#/activiteiten/2";
             var mBassadeurRedirectUrl = "http://www.omdtervuren.be";
             
             var defaultDeptHours = ['10u', '11u', '12u', '14u', '15u', '16u', '17u']
 
             return [
-                {   id : 0,
+                {   id : 1,
                     registrationAllowed: defaultRegistrationAllowed,
-                    name: 'Openstelling herenhuis Delacroix',
-                    departureHours: [],
+                    name: 'De kazerne Panquin',
+                    departureHours: ['10u', '10u20', '10u40', '11u', '11u20', '11u40', '12u', '12u20', '13u20', '13u40', '14u', '14u20', '14u40', '15u', '15u20', '15u40', '16u', '16u20', '16u40', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
                 {   id : 1,
                     registrationAllowed: defaultRegistrationAllowed,
-                    name: 'Openstelling landhuis Little Castle',
-                    departureHours: [],
+                    name: 'De 18de eeuwse Kasteelstraat',
+                    departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
                 {   id : 2,
                     registrationAllowed: defaultRegistrationAllowed,
-                    name: 'Openstelling Hof Hertoginnedal',
-                    departureHours: ['11u', '12u', '16u', '17u'],
+                    name: 'De eerste sociale woonwijk van Tervuren',
+                    departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
                 {   id : 3,
                     registrationAllowed: defaultRegistrationAllowed,
-                    name: 'Openstelling Cottage Steuts',
-                    departureHours: [],
+                    name: 'Een geheel van vier cottages in de Hertogenweg',
+                    departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
-                {   id : 4,
-                    registrationAllowed: defaultRegistrationAllowed,
-                    name: 'Openstelling Hof Uilenkot',
-                    departureHours: ['10u', '11u', '12u', '14u', '17u'],
-                    formUrl: defaultFormUrl,
-                    redirectUrl: defaultRedirectUrl
-                },
-                {   id : 5,
-                    registrationAllowed: defaultRegistrationAllowed,
-                    name: 'Openstelling Sint-Katharinakerk',
-                    departureHours: ['10u', '11u', '12u', '14u', '15u', '16u', '17u'],
-                    formUrl: defaultFormUrl,
-                    redirectUrl: defaultRedirectUrl
-                },
-                {   id : 6,
-                    registrationAllowed: defaultRegistrationAllowed,
-                    name: 'De restauratie en uitbreiding van het Koninklijk Museum voor Midden-Afrika',
-                    departureHours: ['16u'],
-                    formUrl: defaultFormUrl,
-                    redirectUrl: defaultRedirectUrl
-                },
-                {   id : 7,
-                    registrationAllowed: defaultRegistrationAllowed,
-                    name: 'De herbestemming van kazerne Lempereur',
-                    departureHours: ['17u'],
-                    formUrl: defaultFormUrl,
-                    redirectUrl: defaultRedirectUrl
-                },
-                {   id : 8,
-                    registrationAllowed: defaultRegistrationAllowed,
-                    name: 'HOP-ON HOP-OFF TOUR',
-                    departureHours: [],
-                    formUrl: defaultFormUrl,
-                    redirectUrl: defaultRedirectUrl
-                }
-                ,
+               
                 {   id : 9,
-                    registrationAllowed: true,
+                    registrationAllowed: false,
                     name: 'Word M-bassadeur van Tervuren!',
                     departureHours: [],
                     formUrl: mBassadeurFormUrl,
@@ -172,7 +137,7 @@ app.factory('Registration', function ($rootScope) {
                 }
                 ,
                 {   id : 10,
-                    registrationAllowed: true,
+                    registrationAllowed: false,
                     name: 'Paaseitjeswandeling Tervuren',
                     departureHours: [],
                     formUrl: mBassadeurFormUrl,
