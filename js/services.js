@@ -92,7 +92,7 @@ app.factory('Registration', function ($rootScope) {
             var defaultFormUrl = "https://docs.google.com/a/lacage.be/forms/d/1b8TYQf0ITtSpY4FuhC86jrfCPYWtMtOntIj78Thldqw/formResponse";
             var mBassadeurFormUrl = "https://docs.google.com/a/lacage.be/forms/d/1b8TYQf0ITtSpY4FuhC86jrfCPYWtMtOntIj78Thldqw/formResponse";
             /*Month numbers in javascript are zero based!!! */
-            var defaultRegistrationAllowed = new Date()>=new Date(2015, 0, 3);
+            var defaultRegistrationAllowed = new Date()>=new Date(2015, 7, 3);
             var defaultRedirectUrl = "http://www.omdtervuren.be/#/activiteiten/2";
             var mBassadeurRedirectUrl = "http://www.omdtervuren.be";
             
