@@ -123,7 +123,7 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 3,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'Een geheel van vier cottages in de Hertogenweg',
-                    departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
+                    departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
