@@ -102,14 +102,14 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 0,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De kazerne Panquin',
-                    departureHours: ['10u', '10u20', '10u40', '11u20', '11u40', '12u', '12u20', '13u20', '13u40', '14u', '14u20', '14u40', '15u', '15u20', '15u40', '16u', '16u20', '16u40', '17u'],
+                    departureHours: ['10u', '10u20', '10u40', '11u20', '11u40', '12u', '12u20', '13u20', '13u40', '14u20', '14u40', '15u', '15u20', '15u40', '16u', '16u20', '16u40', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
                 {   id : 1,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De 18de eeuwse Kasteelstraat',
-                    departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
+                    departureHours: ['10u', '11u', '14u', '15u', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
