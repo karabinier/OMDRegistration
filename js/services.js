@@ -109,7 +109,7 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 1,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De 18de eeuwse Kasteelstraat',
-                    departureHours: ['10u', '11u', '14u', '15u', '17u'],
+                    departureHours: [11u', '14u', '15u', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
