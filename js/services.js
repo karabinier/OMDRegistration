@@ -102,7 +102,7 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 0,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De kazerne Panquin',
-                    departureHours: ['10u40', '11u40', '12u', '12u20', '13u20', '13u40', '14u20', '14u40', '15u20', '15u40', '16u', '16u20', '16u40', '17u'],
+                    departureHours: ['10u40', '11u40', '12u', '14u20', '14u40', '15u20', '15u40', '16u', '16u20', '16u40', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
