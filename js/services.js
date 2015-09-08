@@ -116,7 +116,7 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 2,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De eerste sociale woonwijk van Tervuren',
-                    departureHours: ['10u', '11u', '12u', '13u', '14u', '15u', '16u', '17u'],
+                    departureHours: ['10u', '11u', '12u', '13u', '14u', '16u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
