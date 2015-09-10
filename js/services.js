@@ -102,7 +102,7 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 0,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De kazerne Panquin',
-                    departureHours: ['15u20', '15u40', '16u', '16u20', '16u40', '17u'],
+                    departureHours: ['15u40', '16u20', '16u40', '17u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
@@ -116,7 +116,7 @@ app.factory('Registration', function ($rootScope) {
                 {   id : 2,
                     registrationAllowed: defaultRegistrationAllowed,
                     name: 'De eerste sociale woonwijk van Tervuren',
-                    departureHours: ['10u', '11u', '12u', '13u', '16u'],
+                    departureHours: ['10u', '11u', '13u', '16u'],
                     formUrl: defaultFormUrl,
                     redirectUrl: defaultRedirectUrl
                 },
